@@ -1,0 +1,6 @@
+name: hackathonplugin
+version: '1.0-SNAPSHOT'
+main: polepi.hackathonpl.Hackathonplugin
+api-version: '1.19'
+authors: [Polepi, NotEther, Sam]
+description: Plugin to be submitted for the EpiTech hackathon
