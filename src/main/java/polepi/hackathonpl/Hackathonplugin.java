@@ -12,6 +12,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
@@ -25,6 +26,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.block.Block;
 import org.bukkit.potion.PotionData;
 import org.bukkit.potion.PotionType;
+import org.bukkit.projectiles.ProjectileSource;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Score;
@@ -173,10 +175,10 @@ public final class Hackathonplugin extends JavaPlugin implements Listener {
 
         switch (sel_kit_id) {
             case 1:
-                giveItem(player, Material.BOW, 1, "MK18");
+                giveItem(player, Material.STICK, 1, "MK18");
                 giveItem(player, Material.STONE_SWORD, 1, "Combat Knife");
                 giveItem(player, Material.BREAD, 10, "MRE");
-                giveItem(player, Material.ARROW, 24, "");
+                giveItem(player, Material.ARROW, 64, "");
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, true, false));
                 ItemStack helmet1 = new ItemStack(Material.LEATHER_HELMET);
                 ItemStack chestplate1 = new ItemStack(Material.LEATHER_CHESTPLATE);
@@ -185,10 +187,11 @@ public final class Hackathonplugin extends JavaPlugin implements Listener {
                 player.getInventory().setArmorContents(new ItemStack[]{boots1, leggings1, chestplate1, helmet1});
                 break;
             case 2:
-                giveItem(player, Material.CROSSBOW, 1, "M4A1 w/ M230");
+                giveItem(player, Material.STICK, 1, "M4A1");
+                giveItem(player, Material.CROSSBOW, 1, "M230");
                 giveItem(player, Material.WOODEN_SWORD, 1, "Knife");
                 giveItem(player, Material.BREAD, 10, "MRE");
-                giveItem(player, Material.ARROW, 20, "");
+                giveItem(player, Material.ARROW, 64, "");
                 giveFireworks(player, 3, "40mm Impact Grenade", 1);
                 ItemStack helmet2 = new ItemStack(Material.IRON_HELMET);
                 ItemStack chestplate2 = new ItemStack(Material.IRON_CHESTPLATE);
@@ -197,14 +200,10 @@ public final class Hackathonplugin extends JavaPlugin implements Listener {
                 player.getInventory().setArmorContents(new ItemStack[]{boots2, leggings2, chestplate2, helmet2});
                 break;
             case 3:
-                ItemStack bow = new ItemStack(Material.CROSSBOW);
-                bow.addUnsafeEnchantment(Enchantment.QUICK_CHARGE, 3);
-                ItemMeta itemMeta = bow.getItemMeta();
-                itemMeta.setDisplayName("M249 SAW");
-                player.getInventory().addItem(bow);
+                giveItem(player, Material.STICK, 1, "M249 SAW");
                 giveItem(player, Material.WOODEN_SWORD, 1, "Knife");
                 giveItem(player, Material.BREAD, 10, "MRE");
-                giveItem(player, Material.ARROW, 64, "");
+                giveItem(player, Material.ARROW, 128, "");
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 0, true, false));
                 ItemStack helmet3 = new ItemStack(Material.IRON_HELMET);
                 ItemStack chestplate3 = new ItemStack(Material.IRON_CHESTPLATE);
@@ -213,10 +212,10 @@ public final class Hackathonplugin extends JavaPlugin implements Listener {
                 player.getInventory().setArmorContents(new ItemStack[]{boots3, leggings3, chestplate3, helmet3});
                 break;
             case 4:
-                giveItem(player, Material.CROSSBOW, 1, "MP5 SF");
+                giveItem(player, Material.STICK, 1, "MP5");
                 giveItem(player, Material.WOODEN_SWORD, 1, "Knife");
                 giveItem(player, Material.BREAD, 10, "MRE");
-                giveItem(player, Material.ARROW, 24, "");
+                giveItem(player, Material.ARROW, 64, "");
                 createCustomPotion(player, PotionType.INSTANT_HEAL, 1, "FAK");
                 createCustomPotion(player, PotionType.INSTANT_HEAL, 1, "FAK");
                 createCustomPotion(player, PotionType.REGEN, 1, "Adrenaline");
@@ -227,14 +226,10 @@ public final class Hackathonplugin extends JavaPlugin implements Listener {
                 player.getInventory().setArmorContents(new ItemStack[]{boots4, leggings4, chestplate4, helmet4});
                 break;
             case 5:
-                ItemStack bow5 = new ItemStack(Material.BOW);
-                bow5.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 2);
-                ItemMeta itemMeta2 = bow5.getItemMeta();
-                itemMeta2.setDisplayName("M24");
-                player.getInventory().addItem(bow5);
+                giveItem(player, Material.STICK, 1, "M24");
                 giveItem(player, Material.WOODEN_SWORD, 1, "Knife");
                 giveItem(player, Material.BREAD, 10, "MRE");
-                giveItem(player, Material.ARROW, 24, "");
+                giveItem(player, Material.ARROW, 64, "");
                 ItemStack helmet5 = new ItemStack(Material.LEATHER_HELMET);
                 ItemStack chestplate5 = new ItemStack(Material.LEATHER_CHESTPLATE);
                 ItemStack leggings5 = new ItemStack(Material.LEATHER_LEGGINGS);
@@ -242,10 +237,11 @@ public final class Hackathonplugin extends JavaPlugin implements Listener {
                 player.getInventory().setArmorContents(new ItemStack[]{boots5, leggings5, chestplate5, helmet5});
                 break;
             case 6:
-                giveItem(player, Material.CROSSBOW, 1, "M4A1");
+                giveItem(player, Material.STICK, 1, "M4A1");
+                giveItem(player, Material.CROSSBOW, 1, "AT-4");
                 giveItem(player, Material.WOODEN_SWORD, 1, "Knife");
                 giveItem(player, Material.BREAD, 10, "MRE");
-                giveItem(player, Material.ARROW, 30, "");
+                giveItem(player, Material.ARROW, 64, "");
                 giveFireworks(player, 2, "84mm Missile", 1);
                 ItemStack helmet6 = new ItemStack(Material.IRON_HELMET);
                 ItemStack chestplate6 = new ItemStack(Material.IRON_CHESTPLATE);
@@ -255,10 +251,10 @@ public final class Hackathonplugin extends JavaPlugin implements Listener {
                 break;
             default:
             case 0:
-                giveItem(player, Material.BOW, 1, "MK18");
+                giveItem(player, Material.STICK, 1, "M4A1");
                 giveItem(player, Material.WOODEN_SWORD, 1, "Knife");
                 giveItem(player, Material.BREAD, 12, "MRE");
-                giveItem(player, Material.ARROW, 32, "");
+                giveItem(player, Material.ARROW, 64, "");
                 createCustomPotion(player, PotionType.INSTANT_DAMAGE, 1, "Frag Grenade");
                 ItemStack helmet = new ItemStack(Material.IRON_HELMET);
                 ItemStack chestplate = new ItemStack(Material.IRON_CHESTPLATE);
@@ -440,11 +436,88 @@ public final class Hackathonplugin extends JavaPlugin implements Listener {
         player.sendActionBar("You are now a "+kitName);
     }
 
+    /* FIREARMS */
+
+    private void removeArrow(Player player) {
+        for (ItemStack item : player.getInventory().getContents()) {
+            if (item != null && item.getType() == Material.ARROW) {
+                if (item.getAmount() > 1) {
+                    item.setAmount(item.getAmount() - 1);
+                } else {
+                    player.getInventory().remove(item);
+                }
+                break;
+            }
+        }
+    }
+    private boolean canFire(Player player, ItemStack item) {
+        if (player.getInventory().contains(Material.ARROW)) {
+            if (player.hasMetadata("lastFired") && !player.getMetadata("lastFired").isEmpty()) {
+                long currentTime = System.currentTimeMillis();
+                long lastFiredTime = player.getMetadata("lastFired").get(0).asLong();
+                ItemMeta meta = item.getItemMeta();
+                String displayName = meta.getDisplayName();
+
+                if (displayName.equals("M249 SAW"))
+                    return (currentTime - lastFiredTime) >= 350;
+                if (displayName.equals("MP5"))
+                    return (currentTime - lastFiredTime) >= 400;
+                if (displayName.equals("M24"))
+                    return (currentTime - lastFiredTime) >= 900;
+                return (currentTime - lastFiredTime) >= 500;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void applyCooldown(Player player) {
+        removeArrow(player);
+        player.setMetadata("lastFired", new org.bukkit.metadata.FixedMetadataValue(this, System.currentTimeMillis()));
+    }
+
+    @EventHandler
+    public void onProjectileHit(ProjectileHitEvent event) {
+        if (event.getEntity() instanceof org.bukkit.entity.Arrow) {
+            org.bukkit.entity.Arrow arrow = (org.bukkit.entity.Arrow) event.getEntity();
+            ProjectileSource shooter = arrow.getShooter();
+            if (shooter instanceof Player) {
+                Player player = (Player) shooter;
+                arrow.remove();
+            }
+        }
+    }
+
+    private void setdamage_arrow(ItemStack item, org.bukkit.entity.Arrow arrow) {
+        double dmg = 2.0;
+        ItemMeta meta = item.getItemMeta();
+        String displayName = meta.getDisplayName();
+        if (displayName.equals("M249 SAW"))
+            dmg = 1.0;
+        if (displayName.equals("MP5"))
+            dmg = 1.2;
+        if (displayName.equals("M24"))
+            dmg = 5.0;
+        arrow.setDamage(dmg);
+    }
+    /* END */
+
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
 
-        if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+        ItemStack item = player.getInventory().getItemInMainHand();
+
+        if (item.getType() == Material.STICK) {
+            getLogger().info("Stick");
+            if (canFire(player, item)) {
+                org.bukkit.entity.Arrow arrow = player.launchProjectile(org.bukkit.entity.Arrow.class);
+                setdamage_arrow(item, arrow);
+
+                applyCooldown(player);
+            }
+        } else if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.OAK_WALL_SIGN) {
                 Sign sign = (Sign) event.getClickedBlock().getState();
                 if (sign.getLine(0).equalsIgnoreCase("Become a") || sign.getLine(0).equalsIgnoreCase("Become an")) {
