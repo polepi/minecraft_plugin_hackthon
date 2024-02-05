@@ -44,7 +44,31 @@ There are classes to choose from with certain gear:
     - AT-4 w/ x2 missiles (Long range)
 </details>
 
+<details>
+  <summary><b>Firearms</b></summary>
 
+
+    M4A1 / MK18 (Assault Rifles)
+      - Medium Damage
+      - Medium Firerate
+    
+    M249 SAW (Light Machine Gun / LMG)
+      - Low Damage
+      - Fast Firerate
+
+    MP5 (SMG)
+      - Low Damage
+      - Fast Firerate
+
+    M24 (Sniper rifle)
+      - High Damage
+      - Low firerate
+
+    AT-4 and M320 (Anti-tank Rocket Launcher and Grenade Launcher)
+      - Crossbow to fire the rockets provided as ammunition.
+      - AT-4 has longer range, but less ammo than the M320.
+
+</details>
 
 ## ✨ Features
 
