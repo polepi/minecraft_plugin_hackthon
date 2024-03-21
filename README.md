@@ -1,4 +1,4 @@
-# Special Minecraft Operation
+# Epitech Minecraft Plugin Hackathon (JAVA)
 
 This is a Bukkit plugin developed by polepi and NotEther to be submitted as part of an Epitech Minecraft Hackathon, with the goal of creating a bukkit plugin that adds a mini-game to a minecraft server.
 The plugin adds a minigame we called "Special Minecraft Operation", that works alongside the map provided in the Server Template. The minigame adds two teams, one team will be defending some fortifications, and the other team has the objective of breaching them and placing a TNT Block underneeth a Radio Tower passed the defences.
